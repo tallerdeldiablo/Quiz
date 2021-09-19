@@ -9,24 +9,55 @@
   </head>
   <body>
     <header>
-      <div id="score-time"> 
+      <div id="score-time">
         <div id="score">
           <h4>
             <a href="scores.html"> High Scores</a></h4>
         </div>
-        <div id="time">
-            <h4>  </h4>
         </div>
-
+        <div class="best">
+          <h4>  </h4>
+        </div>
+      <!--  <div class="timer">
+          <h4> Time </h4>
+        </div> -->
+        <div id="time">
+            <h4> Time  </h4>
+        </div>
       </div>
     </header>
-
-
-    <div class="container">
+   <section id="title-question">
+     <div class="container">
       <h1 class="welcome"> ------QUIZ----------</h1>
-      <h2 id="countdown"></h2>
-      <p id="main"></p>
-    </div>
+      <h2 id="game-over"></h2>
+      <h3 id="question"></h3>
+
+        <div id="first-screen">
+
+        <!-- boton empezar-------/////// ----start button  -->
+            <div class="button-div">
+          <button id="myBtn"> start </button>
+         </div>
+            <!-- boton empezar-------/////// ----start list  -->
+      </div>
+
+     </div>
+    </section>
+
+
+    <section id="content-question">
+
+      <ol id="ol-list">
+
+      </ol>
+
+      <!-- here comes the answers with the function
+      it creates the ol list -->
+
+
+    </section>
+
+
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
