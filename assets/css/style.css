@@ -1,21 +1,36 @@
-    
-   #score-time {
+
+    header {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 30px 1%;
+      background-color: #ff7b00;
+    }
+  #score-time {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px 1%;
   }
-  
+
   #score {
     margin: auto;
     padding: 10px;
     width: 100%;
     height: 25px;
+    font-size: 2rem;
+  }
+  .timer {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    font-size: 2rem;
   }
   #time {
     display: flex;
     justify-content: space-between;
     align-items:flex-end;
+    font-size: 2rem;
   }
 
   .h4 {
@@ -24,25 +39,64 @@
   }
 
 
-.container {
+  .container {
     margin: auto;
     width: 100%;
     height: 100px;
     text-align: center;
+    background-color: rgb(99, 228, 163);
   }
-  
+  #title-question {
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: rgb(99, 228, 163);
+  }
+
 
   .welcome {
     margin-bottom: 20px;
   }
-  
-  #main {
+
+  #first--screen {
+    display: block;
+    justify-content: center;
     margin-bottom: 20px;
     font-size: 100px;
     width: 100%;
     height: 25px;
+    text-decoration: none;
+    background-color: #ffc70e;
   }
-  
+  #content-question{
+    margin: auto;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    background-color: rgb(150, 173, 137);
+  }
+
+  ul {
+    margin-bottom: 20px;
+  }
+  li {
+    margin-bottom: 20px;
+  }
+
+  #myBtn {
+    background-color: #2260f0;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
   #read {
     margin: auto;
     padding: 10px;
