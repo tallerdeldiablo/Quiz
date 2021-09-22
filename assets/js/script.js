@@ -10,7 +10,7 @@ var objeto = {answer:"a1", child1:"b", a2:"c", a3:"d"};
 
 let questions = ["Inside which HTML element do we put the JavaScript?", "Second","Third"]
 
-let answers = ["<script>", "<js>", "<javascript>" ]
+let answers = ["<script>", "<js>", "<javascript>" ,"<script>", "<js>" ]
 const choices = [{
 
   a: 'yes',
@@ -27,13 +27,12 @@ answer: 2,
 indd: 1 
 }];
 
-
 var message =
   'GAME OVER';
 var words = message;
 
 function countdown() {
-  var timeLeft = 21;
+  var timeLeft =40;
 
   var timeInterval = setInterval(function () {
 
@@ -67,31 +66,61 @@ function displayMessage() {
 
   }, 1000);
 }
+
+
+
+
+
+// funcion clic next question
+
+
+
+
+
+
+
+
+
 // ------------START QUIZ----------------
 function startQuest() {
-    var myobj = document.getElementById("myBtn");
-    myobj.remove();
+  var myobj = document.getElementById("myBtn");
+   myobj.remove();
 
    document.getElementById("question").innerHTML = "1" + questions[0];
 
-    var a = document.getElementById("first-screen").innerText = "a" + answers[0];
+   // var a = document.getElementById("first-screen").innerText = "a" + answers[0];
   
     
-    var newdiv = document.createElement("button");
-   
-    pregunEL.append (newdiv)
+   const parent = document.getElementById('preguntasAqui')
+   const ad= document.createElement('button')
+   ad.id = 'button-div'
+   ad.textContent = answers[0];
+   parent.insertAdjacentElement('beforebegin', ad)
 
-   
+   const parent2 = document.getElementById('preguntasAqui')
+   const ad2= document.createElement('button')
+   ad2.id = 'button-div2'
+   ad2.textContent = answers[1];
+   parent2.insertAdjacentElement('beforeend', ad2)
 
-        
+   const parent3 = document.getElementById('preguntasAqui')
+   const ad3= document.createElement('button')
+   ad3.id = 'button-div3'
+   ad3.textContent = answers[2];
+   parent3.insertAdjacentElement('beforebegin', ad3)
   
+
+   //funcion click
 
 
 }
 
 
+
 startEl.addEventListener("click", function() {  
  
+
+
     startQuest();
  countdown();//llama timer / Start Quiz
 
