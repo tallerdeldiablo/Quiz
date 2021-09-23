@@ -245,7 +245,7 @@ function thirdQuest() {
   var myobj = document.getElementById("myBtn");
 
 
-   document.getElementById("question").innerHTML = "3" + questions[1];
+   document.getElementById("question").innerHTML = "3" + questions[2];
 
   
    let parent = document.getElementById('preguntasAqui');
@@ -277,7 +277,7 @@ function thirdQuest() {
     btn2.remove();
     btn3.remove();
    score++
-   gameover();
+   end();
   
   });
   btn2.addEventListener("click", () => {
@@ -286,7 +286,7 @@ function thirdQuest() {
     btn2.remove();
     btn3.remove();
  
-   gameover();
+   end();
    
  });
  btn3.addEventListener("click", () => {
@@ -296,7 +296,7 @@ function thirdQuest() {
   btn2.remove();
   btn3.remove();
  
- gameover();
+ end();
  
 });
 
@@ -307,20 +307,18 @@ function thirdQuest() {
 }
 
 
-//end last
+              //end last
 
-function end() {
-   
-    
- 
-  var Text = prompt("Please enter your name", "AAA");
-  if (Text != "" && Text != null) {
-    Text = Text.trim (  );
-    location.href = "scores.html"
-} else {
-    document.write ( "Error!" );
-}
+      function end() {
+        
+        let  finscore = score*countdown.value;
+      
+        var Text = prompt(" Score" +finscore+ " Please enter your name", "AAA");
+        if (Text != "" && Text != null) {
+          Text = Text.trim (  );
+          location.href = "scores.html";
+          localStorage.setItem("Text", Text);
+         } 
 
-
-}
+      }
 
