@@ -10,15 +10,15 @@ var remo = document.getElementById("first-screen");
 
 var wrong = 0;
 
-
+var score=0;
 
 var questionnumber = 0;
 
 var objeto = {answer:"a1", child1:"b", a2:"c", a3:"d"};
 
-let questions = ["Inside which HTML element do we put the JavaScript?", " What is Javascript","Third","FOURTH"]
+let questions = ["What is Javascript?", "Inside which HTML element do we put the JavaScript?","What does Javascript"]
 
-let answers = ["<script>", "<js>", "<javascript>" ,"A programming language", " a style sheet language ", "HyperText markup language", "<js>" ]
+let answers = ["A programming language", " a style sheet language ", "HyperText markup language", "<script>", "<js>", "<javascript>" , "Create Structure", "Stilize the web", "Increase interactivity" ]
 const choices = [{
 
   a: 'yes',
@@ -48,8 +48,8 @@ var message =
   'GAME OVER';
 var words = message;
 
-function countdown() {
-  var timeLeft =2;
+function countdown(time) {
+  var timeLeft =time;
 
   var timeInterval = setInterval(function () {
 
@@ -58,13 +58,9 @@ function countdown() {
       timerEl.textContent = timeLeft + ' seconds remaining,';
           timeLeft--;
           
-    } else if (timeLeft === 1) {
-  
-      timerEl.textContent = timeLeft + ' second remaining';
-      timeLeft--;
     } else {
-     
-      clearInterval(timeInterval);
+  
+       clearInterval(timeInterval);
       timerEl.textContent = timeLeft + ' Time over';
       
        gameover();
@@ -77,9 +73,8 @@ function countdown() {
 //GAME OVER
 function gameover() {
    
-    
-  remo.setAttribute("style", "display:none;"  );
-  var Text = prompt("Please enter your name", "AAA");
+ 
+  var Text = prompt("GAME OVER Please enter your name", "AAA");
   if (Text != "" && Text != null) {
     Text = Text.trim (  );
     location.href = "scores.html"
@@ -87,7 +82,7 @@ function gameover() {
     document.write ( "Error!" );
 }
 
-remo.remove();
+
 }
 
 
@@ -97,7 +92,7 @@ remo.remove();
 startEl.addEventListener("click", function() {  
  
 
-  countdown();
+  countdown(65);
   startQuest();
   
 //llama timer / Start Quiz
@@ -115,16 +110,148 @@ startEl.addEventListener("click", function() {
 function startQuest() {
  
   var myobj = document.getElementById("myBtn");
-   myobj.remove();
+ myobj.remove();
 
    document.getElementById("question").innerHTML = "1" + questions[0];
 
-   // var a = document.getElementById("first-screen").innerText = "a" + answers[0];
+  
       
-   var parent = document.getElementById('preguntasAqui');
-   var btn1= document.createElement('button')
+    let parent = document.getElementById('preguntasAqui');
+    let btn1= document.createElement('button')
+    btn1.id = 'button-div'
+    btn1.textContent = answers[0];
+    parent.insertAdjacentElement('beforebegin', btn1)
+
+
+    
+    let parent2 = document.getElementById('preguntasAqui')
+    let btn2= document.createElement('button')
+    btn2.id = 'button-div2'
+    btn2.textContent = answers[1];
+    parent2.insertAdjacentElement('beforeend', btn2)
+
+    
+    var parent3 = document.getElementById('preguntasAqui')
+    var btn3= document.createElement('button')
+    btn3.id = 'button-div3'
+    btn3.textContent = answers[2];
+    parent3.insertAdjacentElement('beforeend', btn3)
+
+
+        btn1.addEventListener("click", () => {
+          alert(" CORRECT ");
+          btn1.remove();
+          btn2.remove();
+           btn3.remove();
+        score ++;
+        secondQuest();
+        
+        });
+        btn2.addEventListener("click", () => {
+          alert("WRONG!");
+          btn1.remove();
+          btn2.remove();
+          btn3.remove();
+          countdown(countdown-8);
+        secondQuest();
+        
+          });
+          btn3.addEventListener("click", () => {
+          alert("WRONG!");
+          btn1.remove();
+          btn2.remove();
+          btn3.remove();
+        secondQuest();
+        countdown(countdown-8);
+        });
+
+
+}
+
+
+
+
+
+function secondQuest() {
+   
+  var myobj = document.getElementById("myBtn");
+  
+     document.getElementById("question").innerHTML = "2" + questions[1];
+  
+            
+     
+     let parent = document.getElementById('preguntasAqui');
+     let btn1= document.createElement('button')
+     btn1.id = 'button-div'
+     btn1.textContent = answers[3];
+     parent.insertAdjacentElement('beforebegin', btn1)
+  
+    
+     let parent2 = document.getElementById('preguntasAqui')
+     let btn2= document.createElement('button')
+     btn2.id = 'button-div2'
+     btn2.textContent = answers[4];
+     parent2.insertAdjacentElement('beforeend', btn2)
+  
+    
+     let parent3 = document.getElementById('preguntasAqui')
+     let btn3= document.createElement('button')
+     btn3.id = 'button-div3'
+     btn3.textContent = answers[5];
+     parent3.insertAdjacentElement('beforeend', btn3)
+  
+  
+     btn1.addEventListener("click", () => {
+      alert(" CORRECT ");
+      btn1.remove();
+    btn2.remove();
+    btn3.remove();
+   
+     score++;
+     thirdQuest();
+    
+    });
+    btn2.addEventListener("click", () => {
+      alert("WRONG!");
+      btn1.remove();
+      btn2.remove();
+      btn3.remove();
+      countdown(countdown-8);
+     thirdQuest();
+     
+   });
+   btn3.addEventListener("click", () => {
+    alert("WRONG!");
+    btn1.remove();
+    btn2.remove();
+    btn3.remove();
+    countdown(countdown-8);
+   thirdQuest();
+   
+  });
+  
+  
+  
+    
+  
+  }
+ 
+  
+//last
+
+
+function thirdQuest() {
+   
+  var myobj = document.getElementById("myBtn");
+
+
+   document.getElementById("question").innerHTML = "3" + questions[1];
+
+  
+   let parent = document.getElementById('preguntasAqui');
+   let btn1= document.createElement('button')
    btn1.id = 'button-div'
-   btn1.textContent = "a"+answers[0];
+   btn1.textContent = answers[6];
    parent.insertAdjacentElement('beforebegin', btn1)
 
 
@@ -132,104 +259,55 @@ function startQuest() {
    let parent2 = document.getElementById('preguntasAqui')
    let btn2= document.createElement('button')
    btn2.id = 'button-div2'
-   btn2.textContent = "b" +answers[1];
+   btn2.textContent = answers[7];
    parent2.insertAdjacentElement('beforeend', btn2)
 
   
-   var parent3 = document.getElementById('preguntasAqui')
-   var btn3= document.createElement('button')
+   let parent3 = document.getElementById('preguntasAqui')
+   let btn3= document.createElement('button')
    btn3.id = 'button-div3'
-   btn3.textContent = answers[2];
+   btn3.textContent = answers[8];
    parent3.insertAdjacentElement('beforeend', btn3)
 
 
    btn1.addEventListener("click", () => {
     alert(" CORRECT ");
-   btn1.remove();
-   btn2.remove();
-   btn3.remove();
-   questionnumber++;
-   secondQuest();
+    
+    btn1.remove();
+    btn2.remove();
+    btn3.remove();
+   score++
+   gameover();
   
   });
   btn2.addEventListener("click", () => {
     alert("WRONG!");
-   btn1.remove();
-   btn2.remove();
-   btn3.remove();
-   questionnumber++;
-  secondQuest();
+    btn1.remove();
+    btn2.remove();
+    btn3.remove();
+ 
+   gameover();
    
  });
  btn3.addEventListener("click", () => {
   alert("WRONG!");
- btn1.remove();
- btn2.remove();
- btn3.remove();
- questionnumber++;
- secondQuest();
+ 
+  btn1.remove();
+  btn2.remove();
+  btn3.remove();
+ 
+ gameover();
  
 });
 
 
 
- 
-   //funcion click
-
-
-}
-
-
-
-
-
-
-
-
-function secondQuest() {
- 
-   document.getElementById("question").innerHTML = "1" + questions[1];
-
-  let parent = document.getElementById("first-screen");
-      
-  let btn1= document.createElement('button')
-   btn1.id = 'button-div'
-   btn1.textContent = "correcta"+answers[3];
-   parent.insertAdjacentElement('beforebegin', btn1)
-   btn1.addEventListener("click", () => {
-    alert("Correct!");
-    btn1.remove();
-    btn2.remove();
-    btn3.remove();
-    questionnumber++;
-    end();
-  });
-
-   const parent2 = document.getElementById('preguntasAqui')
-   const btn2= document.createElement('button')
-   btn2.id = 'button-div2'
-   btn2.textContent = answers[4];
-   parent2.insertAdjacentElement('beforeend', btn2)
-   btn1.addEventListener("click", () => {
-    alert("WRONG!");
-    btn1.remove();
-    btn2.remove();
-    btn3.remove();
-    questionnumber++;
-    //secondQuest();
-  });
-
-   const parent3 = document.getElementById('preguntasAqui')
-   const ad3= document.createElement('button')
-   ad3.id = 'button-div3'
-   ad3.textContent = answers[5];
-   parent3.insertAdjacentElement('beforebegin', ad3)
   
- 
-   //funcion click
-
 
 }
+
+
+//end last
 
 function end() {
    
@@ -243,6 +321,6 @@ function end() {
     document.write ( "Error!" );
 }
 
-remo.remove();
+
 }
 
