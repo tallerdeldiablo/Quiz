@@ -1,9 +1,14 @@
 var timerEl = document.getElementById('time');
 var messageEl = document.getElementById('game-over');
 var startEl = document.querySelector("#myBtn");
+//var firsScreenEl = document.getElementById("#title-question");
 
 var lapreguntaEl = document.querySelector("welcome");
 var botonEL = document.querySelector("button-div");
+
+var remo = document.getElementById("first-screen");
+
+var wrong = 0;
 
 
 
@@ -22,12 +27,29 @@ const choices = [{
   answer: 1,
   indd: 1 },  { a: 'choice1', b: 'choice2', c: 'choice2', answer: 2, indd: 1 }];
 
+//GAME OVER
+  function gameover() {
+   
+    
+ 
+      var Text = prompt("Please enter your name", "AAA");
+      if (Text != "" && Text != null) {
+        Text = Text.trim (  );
+        location.href = "scores.html";
+    } else {
+        document.write ( "Error!" );
+    }
+    
+   
+  }
+
+
 var message =
   'GAME OVER';
 var words = message;
 
 function countdown() {
-  var timeLeft =40;
+  var timeLeft =2;
 
   var timeInterval = setInterval(function () {
 
@@ -41,82 +63,52 @@ function countdown() {
       timerEl.textContent = timeLeft + ' second remaining';
       timeLeft--;
     } else {
-   
+     
       clearInterval(timeInterval);
       timerEl.textContent = timeLeft + ' Time over';
- 
-       displayMessage();
+      
+       gameover();
+       console.log(remo);
     }
   }, 1000);
 }
 
-function displayMessage() {
-  var wordCount = 0;
 
-  var msgInterval = setInterval(function () {
-     
-    clearInterval(msgInterval);
-        messageEl.textContent = words;
+//GAME OVER
+function gameover() {
+   
     
-
-  }, 1000);
+  remo.setAttribute("style", "display:none;"  );
+  var Text = prompt("Please enter your name", "AAA");
+  if (Text != "" && Text != null) {
+    Text = Text.trim (  );
+    location.href = "scores.html"
+} else {
+    document.write ( "Error!" );
 }
+
+remo.remove();
+}
+
+
+
 // end timer 
 
-
-
-/*
-
- function secondQuest() {
+startEl.addEventListener("click", function() {  
  
-  var myobj = document.getElementById("myBtn");
-   myobj.remove();
 
-   document.getElementById("question").innerHTML = "1" + questions[1];
-
-   // var a = document.getElementById("first-screen").innerText = "a" + answers[0];
-      
-   
-   var btn1= document.createElement('button')
-   btn1.id = 'button-div'
-   btn1.textContent = "correcta"+answers[0];
-   parent.insertAdjacentElement('beforebegin', btn1)
-   btn1.addEventListener("click", () => {
-    alert("Correct!");
-    btn1.remove();
-    btn2.remove();
-    btn3.remove();
-    questionnumber++;
-    //secondQuest();
-  });
-
-   const parent2 = document.getElementById('preguntasAqui')
-   const btn2= document.createElement('button')
-   btn2.id = 'button-div2'
-   btn2.textContent = answers[1];
-   parent2.insertAdjacentElement('beforeend', btn2)
-   btn1.addEventListener("click", () => {
-    alert("WRONG!");
-    btn1.remove();
-    btn2.remove();
-    btn3.remove();
-    questionnumber++;
-    //secondQuest();
-  });
-
-   const parent3 = document.getElementById('preguntasAqui')
-   const ad3= document.createElement('button')
-   ad3.id = 'button-div3'
-   ad3.textContent = answers[2];
-   parent3.insertAdjacentElement('beforebegin', ad3)
+  countdown();
+  startQuest();
   
- 
-   //funcion click
+//llama timer / Start Quiz
 
 
-}
+});
 
-*/
+
+
+
+
 
 
 // ------------START QUIZ----------------
@@ -137,8 +129,8 @@ function startQuest() {
 
 
   
-   var parent2 = document.getElementById('preguntasAqui')
-   var btn2= document.createElement('button')
+   let parent2 = document.getElementById('preguntasAqui')
+   let btn2= document.createElement('button')
    btn2.id = 'button-div2'
    btn2.textContent = "b" +answers[1];
    parent2.insertAdjacentElement('beforeend', btn2)
@@ -152,12 +144,12 @@ function startQuest() {
 
 
    btn1.addEventListener("click", () => {
-    alert("WRONG!");
+    alert(" CORRECT ");
    btn1.remove();
    btn2.remove();
    btn3.remove();
    questionnumber++;
-  // secondQuest();
+   secondQuest();
   
   });
   btn2.addEventListener("click", () => {
@@ -166,9 +158,19 @@ function startQuest() {
    btn2.remove();
    btn3.remove();
    questionnumber++;
-   //secondQuest();
+  secondQuest();
    
  });
+ btn3.addEventListener("click", () => {
+  alert("WRONG!");
+ btn1.remove();
+ btn2.remove();
+ btn3.remove();
+ questionnumber++;
+ secondQuest();
+ 
+});
+
 
 
  
@@ -179,18 +181,68 @@ function startQuest() {
 
 
 
-startEl.addEventListener("click", function() {  
+
+
+
+
+
+function secondQuest() {
  
+   document.getElementById("question").innerHTML = "1" + questions[1];
+
+  let parent = document.getElementById("first-screen");
+      
+  let btn1= document.createElement('button')
+   btn1.id = 'button-div'
+   btn1.textContent = "correcta"+answers[3];
+   parent.insertAdjacentElement('beforebegin', btn1)
+   btn1.addEventListener("click", () => {
+    alert("Correct!");
+    btn1.remove();
+    btn2.remove();
+    btn3.remove();
+    questionnumber++;
+    end();
+  });
+
+   const parent2 = document.getElementById('preguntasAqui')
+   const btn2= document.createElement('button')
+   btn2.id = 'button-div2'
+   btn2.textContent = answers[4];
+   parent2.insertAdjacentElement('beforeend', btn2)
+   btn1.addEventListener("click", () => {
+    alert("WRONG!");
+    btn1.remove();
+    btn2.remove();
+    btn3.remove();
+    questionnumber++;
+    //secondQuest();
+  });
+
+   const parent3 = document.getElementById('preguntasAqui')
+   const ad3= document.createElement('button')
+   ad3.id = 'button-div3'
+   ad3.textContent = answers[5];
+   parent3.insertAdjacentElement('beforebegin', ad3)
+  
+ 
+   //funcion click
 
 
-    startQuest();
+}
+
+function end() {
+   
     
- countdown();//llama timer / Start Quiz
+ 
+  var Text = prompt("Please enter your name", "AAA");
+  if (Text != "" && Text != null) {
+    Text = Text.trim (  );
+    location.href = "scores.html"
+} else {
+    document.write ( "Error!" );
+}
 
-
-});
-
-
-
-
+remo.remove();
+}
 
