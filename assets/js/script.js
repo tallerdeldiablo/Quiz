@@ -14,18 +14,27 @@ var score=0;
 
 var questionnumber = 0;
 
-var objeto = {answer:"a1", child1:"b", a2:"c", a3:"d"};
-
 let questions = ["What is Javascript?", "Inside which HTML element do we put the JavaScript?","What does Javascript"]
 
 let answers = ["A programming language", " a style sheet language ", "HyperText markup language", "<script>", "<js>", "<javascript>" , "Create Structure", "Stilize the web", "Increase interactivity" ]
 const choices = [{
 
-  a: 'yes',
-  b: 'no',
-  c: 'no',
-  answer: 1,
-  indd: 1 },  { a: 'choice1', b: 'choice2', c: 'choice2', answer: 2, indd: 1 }];
+let questions = [
+  { 
+  question1: "What is Javascript?",
+  choice1: "A programming language",
+  choice2: " a style sheet language ",
+  choice3:"HyperText markup language",
+  answer: 1
+},
+{ 
+  question2: "Inside which HTML element do we put the JavaScript?",
+  choice1: "A programming language",
+  choice2: " a style sheet language ",
+  choice3:"HyperText markup language",
+  answer: 1
+}];
+
 
 //GAME OVER
   function gameover() {
