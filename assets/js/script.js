@@ -16,8 +16,7 @@ var questionnumber = 0;
 
 let questions = ["What is Javascript?", "Inside which HTML element do we put the JavaScript?","What does Javascript"]
 
-let answers = ["A programming language", " a style sheet language ", "HyperText markup language", "<script>", "<js>", "<javascript>" , "Create Structure", "Stilize the web", "Increase interactivity" ]
-const choices = [{
+let answers = ["A programming language", " a style sheet language ", "HyperText markup language", "<script>", "<js>", "<javascript>" , "Create Structure", "Stilize the web", "Increase interactivity" ];
 
 let questions = [
   { 
