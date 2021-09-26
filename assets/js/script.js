@@ -45,11 +45,7 @@ let questions = [
       if (Text != "" && Text != null) {
         Text = Text.trim (  );
         location.href = "scores.html";
-    } else {
-        document.write ( "Error!" );
-    }
-    
-   
+    }   
   }
 
 
