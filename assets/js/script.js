@@ -8,7 +8,7 @@ var secondquestDivEl = document.getElementById("#secondQues");
 
 var firstdivEl = document.getElementById("first-screen");
 
-var wrong = 0;
+var wrong = 1;
 
 var score=0;
 
@@ -43,23 +43,23 @@ let questions = [
 
 //Timer
   
-function countdown(time) {
-  var timeLeft =time;
-timeLeft-=wrong;
-wrong=0;
+function countdown() {
+  var timeLeft =55;
+
+
   var timeInterval = setInterval(function () {
 
     if (timeLeft > 1) {
   
-      timerEl.textContent = timeLeft + '  remaining,';
-          timeLeft--;
+      timerEl.textContent = timeLeft;
+          timeLeft-=wrong;
 
         score = timeLeft;
-    } else  if (timeLeft == 0 ) {
+    } else  if (timeLeft >= 0 ) {
 
       clearInterval(timeInterval);
-      timerEl.textContent = timeLeft + ' Time over';
-   
+      timerEl.textContent =  '0 Time over';
+        end();
     }
      
   }, 1000);
@@ -69,7 +69,7 @@ wrong=0;
 startEl.addEventListener("click", function() {  
  
 
-  countdown(99);
+  countdown();
   start();
   
 });
@@ -79,7 +79,7 @@ timerEl.remove
 
   document.getElementById("question").remove();
 
-    
+    // Creating the form
   document.getElementById("finalForm").innerHTML += `<form action="">
     <label for="fname"> Save your score  </label><br>
     <input type="text" id="fname" name="fname" value="Initials"><br>
@@ -117,7 +117,7 @@ questDivEl.addEventListener("click", function(event) {
   
    secondQ();
   }else {
-   
+    wrong=5;
     element.closest('div').remove();
     alert(" WRONG ");
     secondQ();
@@ -150,6 +150,7 @@ firstdivEl.addEventListener("click", function(event) {
   end();
   
   }else {
+    wrong=5;
     element.closest('div').remove();
     alert(" WRONG ");
    end();
