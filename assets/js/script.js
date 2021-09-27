@@ -1,22 +1,18 @@
 var timerEl = document.getElementById('time');
 var messageEl = document.getElementById('game-over');
-var startEl = document.querySelector("#myBtn");
-//var firsScreenEl = document.getElementById("#title-question");
+var startEl = document.getElementById("myBtn");
 
 var lapreguntaEl = document.querySelector("welcome");
-var questDivEl = document.getElementById("question");
-var botonEL = document.querySelector("button-div");
+var questDivEl = document.getElementById("questDiv");
+var secondquestDivEl = document.getElementById("#secondQues");
 
-var remo = document.getElementById("first-screen");
+var firstdivEl = document.getElementById("first-screen");
 
 var wrong = 0;
 
 var score=0;
 
 var questionnumber = 0;
-
-
-
 
 //,"What does Javascript"]
 
@@ -32,257 +28,135 @@ let questions = [
 },
 { 
   question2: "Inside which HTML element do we put the JavaScript?",
-  choice1: "Style sheet language ",
-  choice2: "Programming language",
-  choice3:"HyperText markup language",
-  answer: 2
+  choice1: " script ",
+  choice2: "js",
+  choice3:"javascript",
+  answer: 1
 },
 
 { question3: "What does Javascript do?", 
-  choice1: "Create Structure",   choice2: "Stilize the web",   choice3:"Increase interactivity",
+  choice1: "Create Structure", choice2: "Stilize the web", choice3:"Increase interactivity",
   answer: 3
 }
 
 ];
 
-
-
 //Timer
   
-function countdown() {
-  var timeLeft =5;
-
+function countdown(time) {
+  var timeLeft =time;
+timeLeft-=wrong;
+wrong=0;
   var timeInterval = setInterval(function () {
 
     if (timeLeft > 1) {
   
       timerEl.textContent = timeLeft + '  remaining,';
           timeLeft--;
-        
+
+        score = timeLeft;
     } else  if (timeLeft == 0 ) {
-   
-     
-/*
+
       clearInterval(timeInterval);
-      timerEl.textContent = timeLeft + ' Time over';*/
-      gameover();
-      
-       console.log(remo);
+      timerEl.textContent = timeLeft + ' Time over';
+   
     }
+     
   }, 1000);
 }
 
-function gameover() {
-   
-    
- 
-  var Text = prompt("Please enter your name", "AAA");
-  if (Text != "" && Text != null) {
-    Text = Text.trim (  );
-    location.href = "scores.html";
-} else {
-    document.write ( "Error!" );
-}
-
-
-}
-
-//GAME OVER
-function gameover() {
-   
-  
-  var Text = prompt("GAME OVER Please enter your name", "AAA");
-  if (Text != "" && Text != null) {
-    Text = Text.trim (  );
-    location.href = "scores.html"
-
-
-} /*else {
-    document.write ( "Error!" );
-}
-*/
-
-}
-
-
-
-// end timer 
-
+// START BUTTON 
 startEl.addEventListener("click", function() {  
  
 
-  countdown();
-  startQuest();
+  countdown(99);
+  start();
   
-//llama timer / Start Quiz
-
-
 });
 
+function end() {
+timerEl.remove
 
-function secondQuest() {
+  document.getElementById("question").remove();
+
+    
+  document.getElementById("finalForm").innerHTML += `<form action="">
+    <label for="fname"> Save your score  </label><br>
+    <input type="text" id="fname" name="fname" value="Initials"><br>
+    <label for="lname">Score:</label><br>
+    ${score}<br><br>
+    <input type="submit" value="Submit"
+  </form>`;
    
    
-            
-     
-     let parent = document.getElementById('preguntasAqui');
-     let btn1= document.createElement('button')
-     btn1.id = 'button-div'
-     btn1.textContent = answers[3];
-     parent.insertAdjacentElement('beforebegin', btn1)
+}
+
   
-    
-     let parent2 = document.getElementById('preguntasAqui')
-     let btn2= document.createElement('button')
-     btn2.id = 'button-div2'
-     btn2.textContent = answers[4];
-     parent2.insertAdjacentElement('beforeend', btn2)
+//FIRST QUESTION
+
+function start() {
+  var myobj = document.getElementById("myBtn");
+  myobj.remove();
+ 
+
+  document.getElementById("question").innerHTML += "1" +questions[0].question1;
+
+  let btn1 = questDivEl.innerHTML += `<button id="btncorrect"> ${questions[0].choice1} </button>`;
+
+   let btn2 = questDivEl.innerHTML += `<button> ${questions[0].choice2} </button>`;
+   let btn3 = questDivEl.innerHTML += `<button> ${questions[0].choice3} </button>`;
+
+ 
+questDivEl.addEventListener("click", function(event) {
+  var element = event.target;
+  event.stopPropagation();
+  if (element.matches("#btncorrect")) {
+ 
+    alert(" CORRECT ");
+   element.closest('div').remove();
   
-    
-     let parent3 = document.getElementById('preguntasAqui')
-     let btn3= document.createElement('button')
-     btn3.id = 'button-div3'
-     btn3.textContent = answers[5];
-     parent3.insertAdjacentElement('beforeend', btn3)
-  
-  
-     btn1.addEventListener("click", () => {
-      alert(" CORRECT ");
-      btn1.remove();
-    btn2.remove();
-    btn3.remove();
+   secondQ();
+  }else {
    
-     score++;
-     thirdQuest();
-    
-    });
-    btn2.addEventListener("click", () => {
-      alert("WRONG!");
-      btn1.remove();
-      btn2.remove();
-      btn3.remove();
-      countdown(countdown-8);
-     thirdQuest();
-     
-   });
-   btn3.addEventListener("click", () => {
-    alert("WRONG!");
-    btn1.remove();
-    btn2.remove();
-    btn3.remove();
-    countdown(countdown-8);
-   thirdQuest();
-   
-  });
-  
-  
-  
-    
-  
+    element.closest('div').remove();
+    alert(" WRONG ");
+    secondQ();
   }
  
-
-
-
-var parent = document.getElementById('preguntasAqui');
-
-
-// ------------START QUIZ----------------
-function startQuest() {
- 
-  var myobj = document.getElementById("myBtn");
- myobj.remove();
-
-  // document.getElementById("question").innerHTML = "1" + questions[0];
-
-  //document.getElementById("question").innerHTML = questions[0].question1;
-  questDivEl.innerHTML += `<h3> ${questions[0].question1} </h3>`;
-
-  let btn1 = questDivEl.innerHTML += `<button> ${questions[0].choice1} </button>`;
-   // document.createElement('button')
-    
-   let btn2 = questDivEl.innerHTML += `<button> ${questions[0].choice2} </button>`;
-   let btn3 = questDivEl.innerHTML += `<button> ${questions[0].choice3} </button>`;
- 
-   btn1.addEventListener("click", () => {
-    alert(" CORRECT ");
-      parent.remove();
-        secondQuest();
-      })
-      
-        btn2.addEventListener("click", () => {
-          alert("WRONG!");
-          parent.remove();
-              countdown += countdown -1;
-              secondQuest();
-        
-          });
-          btn3.addEventListener("click", () => {
-          alert("WRONG!");
-          parent.remove();
-          
-        secondQuest();
-        countdown += countdown -1;
-        gameover();
-        });
-}
-
-
-
-
-
   
-//last
-
-
-function thirdQuest() {
+});
    
-  var myobj = document.getElementById("myBtn");
+      ////end u func
+}//end  First Question
 
+function secondQ() {
 
-   document.getElementById("question").innerHTML = "3" + questions[2];
+  document.getElementById("question").innerHTML = "2" +questions[1].question2;
+ 
+  let btn1 = firstdivEl .innerHTML += `<button id = "btncorrect"> ${questions[1].choice1} </button>`;  
+   let btn2 = firstdivEl .innerHTML += `<button> ${questions[1].choice2} </button>`;
+   let btn3 = firstdivEl .innerHTML += `<button> ${questions[1].choice3} </button>`;
 
   
-   let btn1 = questDivEl.innerHTML += `<button> ${questions[0].choice1} </button>`;
-   // document.createElement('button')
-    
-   let btn2 = questDivEl.innerHTML += `<button> ${questions[0].choice2} </button>`;
-   let btn3 = questDivEl.innerHTML += `<button> ${questions[0].choice3} </button>`;
- 
-   btn1.addEventListener("click", () => {
-    alert(" CORRECT ");
-      parent.remove();
-        secondQuest();
-      })
-      
-        btn2.addEventListener("click", () => {
-          alert("WRONG!");
-          parent.remove();
-              countdown += countdown -1;
-              secondQuest();
-        
-          });
-          btn3.addEventListener("click", () => {
-          alert("WRONG!");
-          parent.remove();
-          
-        secondQuest();
-        countdown += countdown -1;
-        gameover();
-        });
+//inicio
+
+firstdivEl.addEventListener("click", function(event) {
+  var element = event.target;
+
+  if (element.matches("#btncorrect")) {
+    var state = element.getAttribute("color: green");
+    alert(" Third ");
+   element.closest('div').remove();
+  end();
+  
+  }else {
+    element.closest('div').remove();
+    alert(" WRONG ");
+   end();
+  } 
+  
+});
+   
 }
 
-              //end last
-
-      function end() {
-        
-        let  finscore = score*countdown.value;
-      
-        var Text = prompt(" Score" +finscore+ " Please enter your name", "AAA");
-        if (Text != "" && Text != null) {
-          Text = Text.trim (  );
-          location.href = "scores.html";
-          localStorage.setItem("Text", Text);
-         } 
-
-      }
+  
