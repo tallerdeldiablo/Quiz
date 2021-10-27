@@ -1,3 +1,7 @@
+https://img.shields.io/badge/ricoding-JS--quiz-blue
+[![Generic badge](https://img.shields.io/badge/<SUBJECT>-<STATUS>-<COLOR>.svg)](https://shields.io/)
+
+[![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?tallerdeldiablo)](https://github.com/anuraghazra/github-readme-stats)
 # Quiz
 
 ##
