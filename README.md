@@ -3,7 +3,7 @@
 [![Generic badge](https://img.shields.io/badge/<ricoding>-<quiz>-<blue>.svg)](https://shields.io/)
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=tallerdeldiablo)](https://github.com/tallerdeldiablo/Quiz)
 
-[![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?tallerdeldiablo)](https://github.com/tallerdeldiablo/Quiz)
+[![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/top-langs/?username=tallerdeldiablo)](https://github.com/tallerdeldiablo/Quiz)
 # Quiz
 
 ##
