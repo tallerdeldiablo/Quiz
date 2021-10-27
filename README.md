@@ -6,6 +6,25 @@ You are timed throughout the quiz and your score is based on the correct answers
 
 For this project, I used Dom manipulation.
 
+## Table of Contents 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+
+
+## Installation
+
+No installation needed
+
+## Usage
+
+ ```md
+    ![alt text](assets/images/screenshot.png)
+    ```
+
+
+## Tests, and Questions
+
 
 ##
 
